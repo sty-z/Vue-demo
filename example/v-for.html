@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-for</h1>
+    <hr>
+    <div id="app">
+        <ul>
+            <li v-for='item in itemss'>
+                {{item}}
+            </li>
+        </ul>
+    </div>
+    
+    <script type="text/javascript">
+        var app = new Vue({
+            el:"#app",
+            data:{
+                items:[53,23,76,14,54,36,28]
+            },
+            computed:{
+                itemss:function(){
+                    return [1,2,3,4,5,6,7];
+                }
+            }
+        })
+    
+    </script>
+
+</body>
+</html>
