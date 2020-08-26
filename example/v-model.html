@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model 实例</title>
+    <script src="../assets/js/vue.js" type="text/javascript"></script>
+</head>
+<body>
+    <h1>v-model 实例</h1>
+    <hr>
+    <div id="app">
+        <p>{{ message }}</p>
+        <p><input type="text" v-model="message"></p>
+        <hr>
+        <input type="checkbox" id="isTrue" v-model="isTrue">
+        <label for="isTrue">{{ isTrue }}</label>
+        <hr>
+        <p>
+            <input type="checkbox" id="sty" value="sty" v-model="web_names">
+            <label for="isTrue">sty</label>
+            <input type="checkbox" id="sty1" value="sty1" v-model="web_names">
+            <label for="isTrue">sty1</label>
+            <input type="checkbox" id="sty2" value="sty2" v-model="web_names">
+            <label for="isTrue">sty2</label>
+        </p>
+        <p>{{ web_names }}</p>
+        <hr>
+        <h3>单选框绑定</h3>
+        <p>
+            <input type="radio" id="one" value="男" v-model="sex">
+            <label for="one">男</label>
+            <input type="radio" id="two" value="女" v-model="sex">
+            <label for="two">女</label>
+            <p>你选择的性别是：{{ sex }}</p>
+        </p>
+
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:"hello world!",
+                isTrue: true,
+                web_names:[],
+                sex:''
+            }
+        })
+    </script>
+</body>
+</html>
