@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue 扩展实例构造器</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>vue 扩展实例构造器</h1>
+    <hr>
+    
+    <sty></sty>
+    <div id="sty"></div>
+
+    <script type="text/javascript">
+        var styURL = Vue.extend({
+            template:"<p><a :href='styURL'>{{ styName }}</a></p>",
+            data:function(){
+                return{
+                    styName:'baidu',
+                    styURL:"https://www.baidu.com"
+                }
+            }
+        });
+
+        new styURL().$mount("sty");
+        new styURL().$mount("#sty");
+    
+    </script>
+
+</body>
+</html>
