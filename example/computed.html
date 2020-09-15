@@ -10,14 +10,33 @@
     <h1>HelloWorld</h1>
     <hr>
     <div id="app">
-        {{ message }}
+        <p>{{ newPrice }}</p>
+        <ul>
+            <li v-for=" item in reverseNews">{{ item.title}}-{{item.date}}</li>
+        </ul>
+        
     </div>
     
     <script type="text/javascript">
+        var newsList = [
+            {title:'中国制造业复苏喜人 未来将迎机遇期',date:'2020/09/14'},
+            {title:'逆行出征的生命守护者 你的名字，我们的希望',date:'2020/09/15'},
+            {title:'世卫欧洲委员会:团结才能成功  福奇公开与特朗普唱反调',date:'2020/09/16'},
+            {title:'60秒快闪看乘风破浪的河南 深圳:全产业链消费扶贫成气候',date:'2020/09/17'}
+        ]
         var app = new Vue({
             el:"#app",
             data:{
-                message:"hello world!"
+                price:100,
+                newsList:newsList
+            },
+            computed:{
+                newPrice:function(){
+                    return '￥' + this.price + '元';
+                },
+                reverseNews:function(){
+                    return this.newsList.reverse();
+                }
             }
         })
     
