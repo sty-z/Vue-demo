@@ -10,5 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "sty",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@packy-tang/vue-tinymce": "^1.1.0"
+  }
 }
