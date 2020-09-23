@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/assets/js/vue.js" type="text/javascript"></script>
+</head>
+<body>
+    <!-- 
+        混入的执行顺序是：
+        1、全局的定义
+        2、自己定义的
+        3、原生的
+     -->
+    <div id="app">
+        {{num}}
+        <p><button @click="add()">+</button></p>
+    </div>
+    <script type="text/javascript">
+        var addConsole = {
+            updated:function(){
+                console.log("数据发生了变化，变成了"+this.num);
+            }
+        };
+        
+        Vue.mixin({
+            updated:function(){
+                console.log("我是全局的update,变成了"+this.num);
+            }
+        });
+        var appp = new Vue({
+            el:"#app",
+            data:{
+                num:1
+            },
+            methods:{
+                add:function(){
+                    this.num++;
+                }
+            },
+            updated:function(){
+                console.log("我是原生的update数据发生了变化，变成了"+this.num);
+            },
+            mixins:[addConsole]
+        }) 
+    </script>
+</body>
+</html>
